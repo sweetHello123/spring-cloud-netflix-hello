@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
  * @Description:
  * @Date: 2020/6/6 16:16
  */
-@FeignClient(value = "service-provider",fallback = AdminServiceFallback.class)
+@FeignClient(value = "service-provider-admin",fallback = AdminServiceFallback.class)
 public interface AdminService {
 
     @GetMapping("/hi")
