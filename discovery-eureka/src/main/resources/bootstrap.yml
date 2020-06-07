@@ -1,6 +1,8 @@
 spring:
   application:
     name: discovery-eureka
+  zipkin:
+    base-url: http://192.168.179.144:9411
 #  boot:
 #    admin:
 #      client:
