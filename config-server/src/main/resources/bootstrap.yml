@@ -1,13 +1,13 @@
 spring:
   application:
-    name: service-provider-admin
+    name: config-server
   cloud:
     config:
       label: master
       server:
         git:
           uri: https://github.com/sweetHello123/spring-cloud-netflix-hello
-          search-paths: respo
+          search-paths: config-respo
           username: sweetHello123
           password: wc4737515
 

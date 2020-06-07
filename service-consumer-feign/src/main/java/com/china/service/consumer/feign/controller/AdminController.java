@@ -1,7 +1,10 @@
 package com.china.service.consumer.feign.controller;
 
 import com.china.service.consumer.feign.service.AdminService;
+import com.netflix.config.DynamicPropertyFactory;
+import com.netflix.config.DynamicStringProperty;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -10,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @Description:
  * @Date: 2020/6/6 16:27
  */
+@RefreshScope // 开启刷新动态配置
 @RestController
 public class AdminController {
 
@@ -19,5 +23,11 @@ public class AdminController {
     @GetMapping("/hi")
     public String sayHi(){
         return adminService.sayHi();
+    }
+
+    @GetMapping("/hello")
+    public String hello() {
+        DynamicStringProperty property = DynamicPropertyFactory.getInstance().getStringProperty("demo.message", "Hello World");
+        return property.getValue();
     }
 }
