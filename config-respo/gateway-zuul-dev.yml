@@ -1,0 +1,25 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  application:
+    name: gateway-zuul
+  # 基于docker安装zipkin，并配置zipkin服务地址
+  zipkin:
+    base-url: http://192.168.179.144:9411
+
+server:
+  port: 8080
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:8761/eureka/
+
+zuul:
+  routes:
+    api-admin:
+      # 以 /api/service/admin 开头的请求都转发给服务消费端admin
+      path: /api/service/admin/**
+      serviceId: service-consumer-admin
