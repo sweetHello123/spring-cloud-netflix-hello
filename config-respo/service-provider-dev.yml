@@ -1,3 +1,4 @@
+# 服务提供者的远程配置
 spring:
   application:
     name: service-provider-admin

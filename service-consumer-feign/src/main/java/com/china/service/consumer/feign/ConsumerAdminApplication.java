@@ -15,8 +15,8 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @EnableFeignClients
 @EnableEurekaClient
 @SpringBootApplication(scanBasePackages = "com.china.service")
-public class ConsumerApplication {
+public class ConsumerAdminApplication {
     public static void main(String[] args) {
-        SpringApplication.run(ConsumerApplication.class, args);
+        SpringApplication.run(ConsumerAdminApplication.class, args);
     }
 }
